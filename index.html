@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deductive AI | GTM Strategies</title>
+  <link rel="icon" type="image/jpeg" href="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" />
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #08111f;
+      --slide-w: 1280;
+      --slide-h: 720;
+      --nav-height: 84px;
+      --logo-url: url("https://media.licdn.com/dms/image/v2/D560BAQHfeukegwyQuw/company-logo_200_200/company-logo_200_200/0/1731392612466/deductive_ai_logo?e=1778716800&v=beta&t=U51vfKPU6shyUJnd_hsZi2dtyTNXQ1K1omHuuaK-eHI");
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #12233b 0%, #08111f 45%, #040910 100%);
+      color: white;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .presentation-shell {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px 8px;
+    }
+
+    .viewport {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: relative;
+      width: calc(var(--slide-w) * 1px);
+      height: calc(var(--slide-h) * 1px);
+      transform-origin: center center;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      display: none;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(147, 197, 253, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100px 100px;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 64px 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--logo-url) center/cover no-repeat;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(29, 78, 216, 0.22);
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      color: white;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-pill img {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    .brand-pill span {
+      color: #cbd5e1;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 64px 16px;
+      z-index: 10;
+    }
+
+    .footer-text {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .nav {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 14px 20px 22px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .nav-btn {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 18px;
+      min-width: 122px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: rgba(59, 130, 246, 0.18);
+      border-color: rgba(96, 165, 250, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .page-label {
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 600;
+      min-width: 72px;
+      text-align: center;
+    }
+
+    .dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.45);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .dot.active {
+      background: #60a5fa;
+      transform: scale(1.35);
+      box-shadow: 0 0 14px rgba(96, 165, 250, 0.55);
+    }
+
+    .divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-content {
+      flex: 1;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 70px;
+    }
+
+    .s1-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 40px;
+      padding-bottom: 82px;
+    }
+
+    .hero-section {
+      text-align: center;
+      max-width: 1000px;
+      margin-bottom: 20px;
+    }
+
+    .title-xl {
+      font-size: 58px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 14px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .title-accent {
+      background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle-xl {
+      font-size: 22px;
+      color: #94a3b8;
+      margin-bottom: 34px;
+      font-weight: 400;
+    }
+
+    .key-metrics {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      margin-bottom: 34px;
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric-value {
+      font-size: 42px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .metric-label {
+      font-size: 16px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-section {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .content-cards {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 0 64px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 26px;
+      width: 360px;
+      height: 164px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 18px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .card-text {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .section-title-main {
+      font-size: 34px !important;
+      font-weight: 700 !important;
+      line-height: 1.12;
+      color: white;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle-main {
+      font-size: 16px;
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+
+    .s3-main,
+    .s4-main,
+    .s5-main,
+    .s6-main,
+    .s7-main,
+    .s8-main {
+      padding: 0 64px 76px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .s3-main {
+      padding-top: 2px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 8px;
+    }
+
+    .left-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      height: 100%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .criteria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .criteria-item,
+    .signal-item-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .criteria-label {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    .criteria-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .tool-stack,
+    .pain-points,
+    .triggers,
+    .key-points,
+    .priority-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-tag,
+    .key-point,
+    .priority-tag {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fit-signals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .signal-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .signal-icon {
+      width: 24px;
+      height: 24px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #34d399;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .signal-text {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .priority-indicator-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .priority-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .priority-high { background: #ef4444; }
+    .priority-medium { background: #f59e0b; }
+    .priority-low { background: #10b981; }
+
+    .priority-label {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    .personas-grid,
+    .signals-grid,
+    .messaging-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .personas-grid { grid-template-columns: repeat(5, 1fr); }
+    .signals-grid { grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .messaging-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .persona-card,
+    .signal-card,
+    .play-card,
+    .messaging-card,
+    .priority-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .persona-card {
+      padding: 18px 16px;
+      height: 368px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .persona-header,
+    .signal-header,
+    .play-header,
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .persona-header {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .persona-icon,
+    .play-icon,
+    .messaging-card .card-icon,
+    .signal-card .signal-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .messaging-card .card-icon {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+
+    .persona-title,
+    .play-title,
+    .signal-title,
+    .card-title-lg,
+    .priority-title,
+    .strategy-title {
+      font-weight: 700;
+      color: white;
+    }
+
+    .persona-title { font-size: 15px; line-height: 1.2; }
+    .persona-role,
+    .play-subtitle,
+    .signal-category,
+    .card-subtitle,
+    .priority-desc {
+      color: #94a3b8;
+    }
+
+    .persona-role,
+    .play-subtitle,
+    .card-subtitle { font-size: 11px; }
+    .signal-category {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .persona-section,
+    .messaging-section,
+    .play-section {
+      margin-bottom: 12px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #60a5fa;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-content,
+    .section-text,
+    .strategy-text {
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.35;
+    }
+
+    .pain-tag {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 10px;
+      color: #fca5a5;
+    }
+
+    .trigger-tag {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 10px;
+      color: #34d399;
+    }
+
+    .priority-indicator {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .signal-card {
+      padding: 14px;
+      height: 430px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .signal-header {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .signal-card .signal-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .urgency-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .urgency-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .urgency-high { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.5); }
+    .urgency-medium { background: #f59e0b; }
+    .urgency-low { background: #10b981; }
+
+    .urgency-label,
+    .conversion-label {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .signal-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .signal-card .signal-item-box {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    .signal-check {
+      margin-right: 5px;
+      color: #10b981;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .conversion-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .conversion-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .conversion-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    .conversion-high { background: linear-gradient(90deg, #ef4444, #f59e0b); }
+    .conversion-medium { background: linear-gradient(90deg, #f59e0b, #10b981); }
+    .conversion-low { background: linear-gradient(90deg, #10b981, #34d399); }
+
+    .plays-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .play-card {
+      padding: 18px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .play-header {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .play-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .section-text {
+      padding-left: 16px;
+    }
+
+    .signal-source {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #34d399;
+      margin-left: 16px;
+    }
+
+    .outreach-angle,
+    .hook-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 11px;
+      color: #60a5fa;
+      line-height: 1.35;
+      margin-left: 16px;
+    }
+
+    .hook-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.15);
+      margin-left: 0;
+      padding: 10px;
+    }
+
+    .hook-text {
+      font-size: 12px;
+      color: #34d399;
+      line-height: 1.35;
+      font-style: italic;
+    }
+
+    .priority-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #fca5a5;
+    }
+
+    .priority-badge.medium {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+    }
+
+    .messaging-card {
+      padding: 18px;
+      height: 368px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-3 .content-grid {
+      gap: 24px;
+      margin-top: 4px;
+    }
+
+    .slide-3 .left-column,
+    .slide-3 .right-column {
+      gap: 18px;
+    }
+
+    .slide-3 .section-card {
+      padding: 20px;
+    }
+
+    .slide-3 .section-header {
+      margin-bottom: 16px;
+    }
+
+    .slide-3 .criteria-grid,
+    .slide-3 .fit-signals {
+      gap: 12px;
+    }
+
+    .slide-3 .criteria-item {
+      padding: 12px;
+    }
+
+    .slide-3 .criteria-label {
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .slide-3 .criteria-value {
+      font-size: 14px;
+    }
+
+    .slide-3 .tool-tag {
+      padding: 7px 12px;
+      font-size: 12px;
+    }
+
+    .slide-3 .signal-text {
+      font-size: 13px;
+    }
+
+    .slide-4 .personas-grid {
+      gap: 14px;
+    }
+
+    .slide-4 .section-subtitle-main {
+      margin-bottom: 12px;
+    }
+
+    .slide-4 .persona-card {
+      height: 386px;
+      padding: 20px 17px;
+    }
+
+    .slide-4 .persona-title {
+      font-size: 14px;
+    }
+
+    .slide-4 .section-label {
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+
+    .slide-5 .section-subtitle-main {
+      font-size: 17px !important;
+      margin-bottom: 14px;
+    }
+
+    .slide-5 .signals-grid {
+      gap: 10px;
+    }
+
+    .slide-5 .signal-title {
+      font-size: 15px;
+    }
+
+    .slide-5 .signal-text {
+      font-size: 12px;
+      line-height: 1.25;
+      gap: 14px;
+    }
+
+    .slide-8 .section-subtitle-main {
+      margin-bottom: 18px;
+    }
+
+    .slide-8 .priority-number {
+      width: 38px;
+      height: 38px;
+      font-size: 17px;
+    }
+
+    .slide-8 .priority-tag {
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+
+    .slide-8 .strategy-title {
+      font-size: 16px;
+    }
+
+    .slide-6 .plays-grid {
+      gap: 18px;
+    }
+
+    .slide-6 .play-card {
+      padding: 18px;
+      height: 196px;
+    }
+
+    .slide-6 .play-header {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+    }
+
+    .slide-6 .play-title {
+      font-size: 15px;
+    }
+
+    .slide-6 .play-subtitle {
+      font-size: 11px;
+    }
+
+    .slide-6 .play-content {
+      gap: 8px;
+    }
+
+    .slide-6 .play-section {
+      margin-bottom: 10px;
+    }
+
+    .slide-6 .section-label {
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+
+    .slide-6 .section-text {
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .slide-6 .signal-source,
+    .slide-6 .outreach-angle {
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .slide-6 .priority-badge {
+      font-size: 10px;
+      padding: 4px 7px;
+    }
+
+    .slide-7 .messaging-grid {
+      gap: 14px;
+    }
+
+    .slide-7 .messaging-card {
+      padding: 18px;
+      height: 378px;
+      padding-top: 48px;
+    }
+
+    .slide-7 .messaging-card .card-header {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+    }
+
+    .slide-7 .card-title-lg {
+      font-size: 16px;
+    }
+
+    .slide-7 .card-subtitle {
+      font-size: 12px;
+    }
+
+    .slide-7 .messaging-section {
+      margin-bottom: 10px;
+    }
+
+    .slide-7 .section-content {
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .slide-7 .hook-box {
+      padding: 10px;
+    }
+
+    .slide-7 .hook-text {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .slide-7 .key-point {
+      font-size: 10px;
+      padding: 5px 8px;
+    }
+
+    .slide-7 .priority-badge {
+      top: 14px;
+      right: 14px;
+      font-size: 10px;
+      padding: 4px 7px;
+      z-index: 2;
+    }
+
+    .messaging-card .card-header {
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .card-title-lg {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    .roadmap-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .priority-row {
+      display: flex;
+      align-items: stretch;
+      gap: 18px;
+    }
+
+    .priority-card {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .priority-number {
+      width: 44px;
+      height: 44px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .priority-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .priority-title { font-size: 16px; margin-bottom: 4px; }
+    .priority-desc { font-size: 12px; line-height: 1.3; margin-bottom: 10px; }
+
+    .priority-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .priority-card .priority-indicator {
+      position: static;
+      margin-left: auto;
+      gap: 8px;
+    }
+
+    .strategy-box {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-top: 2px;
+    }
+
+    .strategy-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .strategy-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 14px;
+    }
+
+    .strategy-text {
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+  <div class="presentation-shell">
+    <div class="viewport" id="viewport">
+      <div class="stage" id="stage">
+        <section class="slide active" data-title="Cover">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo">
+              <div class="logo-icon"></div>
+              <div class="logo-text">Deductive AI</div>
+            </div>
+            <div class="brand-pill">
+              <img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" />
+              <span>Sprouts.ai</span>
+            </div>
+          </div>
+          <div class="main-content s1-main">
+            <div class="hero-section">
+              <div class="title-xl"><span class="title-accent">Outbound Growth Strategy</span><br />for Deductive AI</div>
+              <div class="subtitle-xl">Signal-led pipeline generation opportunities</div>
+            </div>
+            <div class="content-cards">
+              <div class="card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-search"></i></div><div class="card-title">Signal Detection</div></div>
+                <div class="card-text">Identify high-intent prospects through real-time buying signals</div>
+              </div>
+              <div class="card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-users"></i></div><div class="card-title">ICP Targeting</div></div>
+                <div class="card-text">Focus on Series B+ companies with 50+ engineers</div>
+              </div>
+              <div class="card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-bullseye"></i></div><div class="card-title">Outbound Plays</div></div>
+                <div class="card-text">Execute targeted outreach with proven messaging</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <span class="footer-text">Prepared by Sprouts.ai</span>
+            <div class="footer-right">
+              <span class="footer-text">April 2026</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Market Opportunity">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo">
+              <div class="logo-icon"></div>
+              <div class="logo-text">Deductive AI</div>
+            </div>
+            <div class="brand-pill">
+              <img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" />
+              <span>Sprouts.ai</span>
+            </div>
+          </div>
+          <div style="position:absolute; left:60px; top:98px; width:850px; z-index:10;">
+            <p style="font-size:28px; font-weight:800; color:white; letter-spacing:-0.02em; margin:0;">Market Opportunity <span style="color:#64748b; font-weight:400; margin:0 8px;">|</span> <span style="background:linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Where Downtime Hurts Revenue</span></p>
+          </div>
+          <div style="position:absolute; left:60px; top:140px; width:375px; height:520px; background:rgba(59,130,246,0.05); border:1px solid rgba(59,130,246,0.2); border-top:4px solid #3b82f6; border-radius:8px;"></div>
+          <div style="position:absolute; left:60px; top:155px; width:375px; z-index:10;"><p style="text-align:center; font-size:16px; font-weight:700; color:#60a5fa; text-transform:uppercase; letter-spacing:0.05em; margin:0;">Tier 1: High Priority</p></div>
+
+          <div style="position:absolute; left:75px; top:195px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:85px; top:208px; color:#60a5fa; font-size:16px; z-index:10;"><i class="fas fa-credit-card"></i></div>
+          <div style="position:absolute; left:110px; top:206px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Fintech &amp; Payments</p></div>
+          <div style="position:absolute; left:85px; top:230px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Uptime:</span> Direct revenue loss; SLA risk.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Pain:</span> Cascading latency; compliance pressure.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Fit:</span> Causal reasoning protects transaction flow.</p></div>
+
+          <div style="position:absolute; left:75px; top:310px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:85px; top:323px; color:#60a5fa; font-size:16px; z-index:10;"><i class="fas fa-server"></i></div>
+          <div style="position:absolute; left:110px; top:321px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">SaaS Infrastructure</p></div>
+          <div style="position:absolute; left:85px; top:345px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Uptime:</span> Usage-based revenue &amp; SLA credits.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Pain:</span> Multi-tenant noisy-neighbor regressions.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Fit:</span> Change-aware RCA prevents breaches.</p></div>
+
+          <div style="position:absolute; left:75px; top:425px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:85px; top:438px; color:#60a5fa; font-size:16px; z-index:10;"><i class="fas fa-shopping-cart"></i></div>
+          <div style="position:absolute; left:110px; top:436px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">E-commerce</p></div>
+          <div style="position:absolute; left:85px; top:460px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Uptime:</span> Latency instantly kills conversion.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Pain:</span> Hidden dependencies from promo deploys.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Fit:</span> Correlates deploys to restore funnels fast.</p></div>
+
+          <div style="position:absolute; left:75px; top:540px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:85px; top:553px; color:#60a5fa; font-size:16px; z-index:10;"><i class="fas fa-store"></i></div>
+          <div style="position:absolute; left:110px; top:551px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Marketplaces</p></div>
+          <div style="position:absolute; left:85px; top:575px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Uptime:</span> Latency degrades 2-sided liquidity.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Pain:</span> ML/feature store changes break ranking.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#60a5fa; font-weight:600;">Fit:</span> Code metadata explains latency quickly.</p></div>
+
+          <div style="position:absolute; left:455px; top:140px; width:375px; height:520px; background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.2); border-top:4px solid #10b981; border-radius:8px;"></div>
+          <div style="position:absolute; left:455px; top:155px; width:375px; z-index:10;"><p style="text-align:center; font-size:16px; font-weight:700; color:#34d399; text-transform:uppercase; letter-spacing:0.05em; margin:0;">Tier 2: Medium Priority</p></div>
+
+          <div style="position:absolute; left:470px; top:195px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:480px; top:208px; color:#34d399; font-size:16px; z-index:10;"><i class="fas fa-truck"></i></div>
+          <div style="position:absolute; left:505px; top:206px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Logistics</p></div>
+          <div style="position:absolute; left:480px; top:230px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Uptime:</span> ETA accuracy drives fulfillment costs.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Pain:</span> Microservice flakiness; map API failures.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Fit:</span> Dependency graph maps upstream breaks.</p></div>
+
+          <div style="position:absolute; left:470px; top:310px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:480px; top:323px; color:#34d399; font-size:16px; z-index:10;"><i class="fas fa-heartbeat"></i></div>
+          <div style="position:absolute; left:505px; top:321px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Healthcare Tech</p></div>
+          <div style="position:absolute; left:480px; top:345px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Uptime:</span> Care delivery &amp; billing continuity.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Pain:</span> Complex EHR layers; on-call fatigue.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Fit:</span> Evidence-backed RCA to cut MTTR.</p></div>
+
+          <div style="position:absolute; left:470px; top:425px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:480px; top:438px; color:#34d399; font-size:16px; z-index:10;"><i class="fas fa-brain"></i></div>
+          <div style="position:absolute; left:505px; top:436px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">AI Infrastructure</p></div>
+          <div style="position:absolute; left:480px; top:460px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Uptime:</span> Low-latency SLOs; high GPU cost.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Pain:</span> Model rollouts &amp; schema drifts.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Fit:</span> Correlates model changes with telemetry.</p></div>
+
+          <div style="position:absolute; left:470px; top:540px; width:345px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:480px; top:553px; color:#34d399; font-size:16px; z-index:10;"><i class="fas fa-code"></i></div>
+          <div style="position:absolute; left:505px; top:551px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Developer Tools</p></div>
+          <div style="position:absolute; left:480px; top:575px; width:325px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Uptime:</span> Trust hinges on API reliability.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Pain:</span> Frequent releases &amp; noisy alerting.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#34d399; font-weight:600;">Fit:</span> Learns from incidents to shrink RCA.</p></div>
+
+          <div style="position:absolute; left:850px; top:140px; width:370px; height:520px; background:rgba(148,163,184,0.05); border:1px solid rgba(148,163,184,0.2); border-top:4px solid #94a3b8; border-radius:8px;"></div>
+          <div style="position:absolute; left:850px; top:155px; width:370px; z-index:10;"><p style="text-align:center; font-size:16px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; margin:0;">Tier 3: Opportunistic</p></div>
+
+          <div style="position:absolute; left:865px; top:195px; width:340px; height:105px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:6px;"></div>
+          <div style="position:absolute; left:875px; top:208px; color:#94a3b8; font-size:16px; z-index:10;"><i class="fas fa-building"></i></div>
+          <div style="position:absolute; left:900px; top:206px; z-index:10;"><p style="font-size:15px; font-weight:700; color:#e2e8f0; margin:0;">Enterprise DT</p></div>
+          <div style="position:absolute; left:875px; top:230px; width:320px; z-index:10;"><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#94a3b8; font-weight:600;">Uptime:</span> Critical internal services; reputation.</p><p style="font-size:12px; color:#cbd5e1; margin:0 0 4px; line-height:1.4;"><span style="color:#94a3b8; font-weight:600;">Pain:</span> Hybrid/legacy-to-cloud complexity.</p><p style="font-size:12px; color:#cbd5e1; margin:0; line-height:1.4;"><span style="color:#94a3b8; font-weight:600;">Fit:</span> Cross-stack reasoning over telemetry.</p></div>
+
+          <div style="position:absolute; left:865px; top:310px; width:340px; height:335px; background:rgba(0,0,0,0.2); border:1px dashed rgba(148,163,184,0.3); border-radius:8px;"></div>
+          <div style="position:absolute; left:885px; top:330px; z-index:10;"><p style="font-size:16px; font-weight:700; color:#e2e8f0; margin:0;"><i class="fas fa-lightbulb" style="color:#fbbf24; margin-right:8px;"></i> Targeting Strategy</p></div>
+          <div style="position:absolute; left:885px; top:365px; width:300px; z-index:10;"><p style="font-size:13px; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Deductive AI should focus outbound resources heavily on <b>Tier 1</b>. These industries experience direct revenue impact from downtime and have the highest willingness to pay for MTTR reduction.</p><p style="font-size:14px; color:#e2e8f0; font-weight:600; margin:0 0 10px 0;">Key Characteristics of Ideal Targets:</p><p style="font-size:13px; color:#cbd5e1; line-height:1.7; margin:0 0 0 12px;">• High transaction volume<br />• Stringent SLAs with customers<br />• Complex microservice architectures<br />• Heavy reliance on deployment velocity</p></div>
+
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-3" data-title="Ideal Customer Profile">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s3-main">
+            <div class="section-title-main">Ideal Customer Profile (ICP)</div>
+            <div class="section-subtitle-main">Target companies with high infrastructure complexity and incident resolution needs</div>
+            <div class="content-grid">
+              <div class="left-column">
+                <div class="section-card">
+                  <div class="section-header"><div class="section-icon"><i class="fas fa-building"></i></div><div><div class="section-title">Company Profile</div><div class="section-subtitle">Stage, size, and team composition</div></div></div>
+                  <div class="criteria-grid">
+                    <div class="criteria-item"><div class="criteria-label">Company Stage</div><div class="criteria-value">Series B to pre-IPO</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Company Size</div><div class="criteria-value">200-5000 employees</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Engineering Team</div><div class="criteria-value">50+ engineers</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Target Segment</div><div class="criteria-value">Mid-market to enterprise</div></div>
+                  </div>
+                </div>
+                <div class="section-card">
+                  <div class="section-header"><div class="section-icon"><i class="fas fa-server"></i></div><div><div class="section-title">Infrastructure Complexity</div><div class="section-subtitle">Technical requirements and stack</div></div></div>
+                  <div class="criteria-grid">
+                    <div class="criteria-item"><div class="criteria-label">Architecture</div><div class="criteria-value">Microservices, K8s</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Cloud</div><div class="criteria-value">Multi-cloud/hybrid</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Deployment</div><div class="criteria-value">Daily/weekly releases</div></div>
+                    <div class="criteria-item"><div class="criteria-label">Observability</div><div class="criteria-value">Datadog, New Relic</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="right-column">
+                <div class="section-card">
+                  <div class="section-header"><div class="section-icon"><i class="fas fa-tools"></i></div><div><div class="section-title">Existing Tool Stack</div><div class="section-subtitle">Current monitoring and incident management</div></div></div>
+                  <div class="tool-stack">
+                    <div class="tool-tag"><i class="fas fa-chart-line"></i><span>Datadog</span></div>
+                    <div class="tool-tag"><i class="fas fa-bell" style="color:#ef4444;"></i><span>PagerDuty</span></div>
+                    <div class="tool-tag"><i class="fas fa-eye" style="color:#10b981;"></i><span>New Relic</span></div>
+                    <div class="tool-tag"><i class="fas fa-cube" style="color:#f59e0b;"></i><span>Grafana</span></div>
+                    <div class="tool-tag"><i class="fas fa-code-branch" style="color:#8b5cf6;"></i><span>GitHub</span></div>
+                    <div class="tool-tag"><i class="fas fa-cloud" style="color:#06b6d4;"></i><span>AWS</span></div>
+                  </div>
+                </div>
+                <div class="section-card">
+                  <div class="section-header"><div class="section-icon"><i class="fas fa-signal"></i></div><div><div class="section-title">Contextual Fit Signals</div><div class="section-subtitle">Indicators of high purchase intent</div></div></div>
+                  <div class="fit-signals">
+                    <div class="signal-item"><div class="signal-icon"><i class="fas fa-check"></i></div><div class="signal-text">SLO breaches on P90/P99 latency</div></div>
+                    <div class="signal-item"><div class="signal-icon"><i class="fas fa-check"></i></div><div class="signal-text">&gt;300 weekly deploys</div></div>
+                    <div class="signal-item"><div class="signal-icon"><i class="fas fa-check"></i></div><div class="signal-text">&gt;50 active services</div></div>
+                    <div class="signal-item"><div class="signal-icon"><i class="fas fa-check"></i></div><div class="signal-text">High on-call load reported</div></div>
+                  </div>
+                  <div class="priority-indicator-row"><div class="priority-dot priority-high"></div><div class="priority-label">High priority: Recent outages</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-4" data-title="Buyer Personas">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s4-main">
+            <div class="section-title-main">Buyer Personas</div>
+            <div class="section-subtitle-main">Key decision-makers and influencers in the incident resolution process</div>
+            <div class="personas-grid">
+              <div class="persona-card">
+                <div class="persona-header"><div class="persona-icon"><i class="fas fa-user-tie"></i></div><div><div class="persona-title">CTO</div><div class="persona-role">Chief Technology Officer</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bullseye" style="font-size:10px;"></i><span>Goals</span></div><div class="section-content">Engineering productivity, system reliability, cost optimization</div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-exclamation-triangle" style="font-size:10px;"></i><span>Pain Points</span></div><div class="pain-points"><div class="pain-tag">Downtime cost</div><div class="pain-tag">Technical debt</div><div class="pain-tag">Team burnout</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bolt" style="font-size:10px;"></i><span>Buying Triggers</span></div><div class="triggers"><div class="trigger-tag">Major outage</div><div class="trigger-tag">SLA breach</div></div></div>
+                <div class="priority-indicator"><div class="priority-dot priority-high"></div></div>
+              </div>
+              <div class="persona-card">
+                <div class="persona-header"><div class="persona-icon"><i class="fas fa-cogs"></i></div><div><div class="persona-title">VP Engineering</div><div class="persona-role">Vice President of Engineering</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bullseye" style="font-size:10px;"></i><span>Goals</span></div><div class="section-content">Release velocity, team efficiency, code quality</div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-exclamation-triangle" style="font-size:10px;"></i><span>Pain Points</span></div><div class="pain-points"><div class="pain-tag">Slow releases</div><div class="pain-tag">Deployment failures</div><div class="pain-tag">Coordination issues</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bolt" style="font-size:10px;"></i><span>Buying Triggers</span></div><div class="triggers"><div class="trigger-tag">Release delays</div><div class="trigger-tag">Quality issues</div></div></div>
+                <div class="priority-indicator"><div class="priority-dot priority-high"></div></div>
+              </div>
+              <div class="persona-card">
+                <div class="persona-header"><div class="persona-icon"><i class="fas fa-shield-alt"></i></div><div><div class="persona-title">Head of SRE</div><div class="persona-role">Site Reliability Engineering</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bullseye" style="font-size:10px;"></i><span>Goals</span></div><div class="section-content">Reduce MTTR, alert fatigue, incident response</div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-exclamation-triangle" style="font-size:10px;"></i><span>Pain Points</span></div><div class="pain-points"><div class="pain-tag">Alert noise</div><div class="pain-tag">On-call fatigue</div><div class="pain-tag">Slow RCA</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bolt" style="font-size:10px;"></i><span>Buying Triggers</span></div><div class="triggers"><div class="trigger-tag">High MTTR</div><div class="trigger-tag">Frequent incidents</div></div></div>
+                <div class="priority-indicator"><div class="priority-dot priority-high"></div></div>
+              </div>
+              <div class="persona-card">
+                <div class="persona-header"><div class="persona-icon"><i class="fas fa-server"></i></div><div><div class="persona-title">Head of Platform</div><div class="persona-role">Platform Engineering</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bullseye" style="font-size:10px;"></i><span>Goals</span></div><div class="section-content">Infrastructure stability, scalability, cost control</div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-exclamation-triangle" style="font-size:10px;"></i><span>Pain Points</span></div><div class="pain-points"><div class="pain-tag">Resource constraints</div><div class="pain-tag">Scaling issues</div><div class="pain-tag">Platform reliability</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bolt" style="font-size:10px;"></i><span>Buying Triggers</span></div><div class="triggers"><div class="trigger-tag">Capacity issues</div><div class="trigger-tag">Performance degradation</div></div></div>
+                <div class="priority-indicator"><div class="priority-dot priority-medium"></div></div>
+              </div>
+              <div class="persona-card">
+                <div class="persona-header"><div class="persona-icon"><i class="fas fa-tools"></i></div><div><div class="persona-title">DevOps Leaders</div><div class="persona-role">DevOps &amp; Operations</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bullseye" style="font-size:10px;"></i><span>Goals</span></div><div class="section-content">Operational efficiency, automation, monitoring</div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-exclamation-triangle" style="font-size:10px;"></i><span>Pain Points</span></div><div class="pain-points"><div class="pain-tag">Manual processes</div><div class="pain-tag">Tool fragmentation</div><div class="pain-tag">Visibility gaps</div></div></div>
+                <div class="persona-section"><div class="section-label"><i class="fas fa-bolt" style="font-size:10px;"></i><span>Buying Triggers</span></div><div class="triggers"><div class="trigger-tag">Process inefficiency</div><div class="trigger-tag">Tool consolidation</div></div></div>
+                <div class="priority-indicator"><div class="priority-dot priority-medium"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-5" data-title="Buying Signals">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s5-main">
+            <div class="section-title-main" style="margin-bottom:4px;">Highest Intent Buying Signals</div>
+            <div class="section-subtitle-main" style="font-size:20px;">Identify prospects with urgent needs and high conversion potential</div>
+            <div class="signals-grid">
+              <div class="signal-card">
+                <div class="signal-header"><div class="signal-icon"><i class="fas fa-exclamation-triangle"></i></div><div><div class="signal-title">Outage Signals</div><div class="signal-category">Critical</div></div></div>
+                <div class="urgency-indicator"><div class="urgency-dot urgency-high"></div><span class="urgency-label">High Urgency</span></div>
+                <div class="signal-list">
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Recent outages</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Public incidents</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Postmortems published</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Status page updates</span></div></div>
+                </div>
+                <div class="conversion-bar"><span class="conversion-label">Conv:</span><div class="conversion-track"><div class="conversion-fill conversion-high" style="width:85%;"></div></div><span class="conversion-label">85%</span></div>
+              </div>
+              <div class="signal-card">
+                <div class="signal-header"><div class="signal-icon"><i class="fas fa-users"></i></div><div><div class="signal-title">Hiring Signals</div><div class="signal-category">Growth</div></div></div>
+                <div class="urgency-indicator"><div class="urgency-dot urgency-medium"></div><span class="urgency-label">Medium Urgency</span></div>
+                <div class="signal-list">
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Hiring SREs</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Hiring DevOps</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Platform engineers</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Incident response roles</span></div></div>
+                </div>
+                <div class="conversion-bar"><span class="conversion-label">Conv:</span><div class="conversion-track"><div class="conversion-fill conversion-medium" style="width:70%;"></div></div><span class="conversion-label">70%</span></div>
+              </div>
+              <div class="signal-card">
+                <div class="signal-header"><div class="signal-icon"><i class="fas fa-server"></i></div><div><div class="signal-title">Technology Signals</div><div class="signal-category">Adoption</div></div></div>
+                <div class="urgency-indicator"><div class="urgency-dot urgency-medium"></div><span class="urgency-label">Medium Urgency</span></div>
+                <div class="signal-list">
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Datadog adoption</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Kubernetes usage</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>OpenTelemetry</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Cloud migration</span></div></div>
+                </div>
+                <div class="conversion-bar"><span class="conversion-label">Conv:</span><div class="conversion-track"><div class="conversion-fill conversion-medium" style="width:75%;"></div></div><span class="conversion-label">75%</span></div>
+              </div>
+              <div class="signal-card">
+                <div class="signal-header"><div class="signal-icon"><i class="fas fa-chart-line"></i></div><div><div class="signal-title">Growth Signals</div><div class="signal-category">Expansion</div></div></div>
+                <div class="urgency-indicator"><div class="urgency-dot urgency-low"></div><span class="urgency-label">Low Urgency</span></div>
+                <div class="signal-list">
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Recent funding</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Product launches</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Global expansion</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Team scaling</span></div></div>
+                </div>
+                <div class="conversion-bar"><span class="conversion-label">Conv:</span><div class="conversion-track"><div class="conversion-fill conversion-low" style="width:60%;"></div></div><span class="conversion-label">60%</span></div>
+              </div>
+              <div class="signal-card">
+                <div class="signal-header"><div class="signal-icon"><i class="fas fa-user-tie"></i></div><div><div class="signal-title">Leadership Signals</div><div class="signal-category">Change</div></div></div>
+                <div class="urgency-indicator"><div class="urgency-dot urgency-high"></div><span class="urgency-label">High Urgency</span></div>
+                <div class="signal-list">
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>New CTOs</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>New engineering leaders</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>VP Engineering hires</span></div></div>
+                  <div class="signal-item-box"><div class="signal-text"><i class="fas fa-check-circle signal-check"></i><span>Leadership changes</span></div></div>
+                </div>
+                <div class="conversion-bar"><span class="conversion-label">Conv:</span><div class="conversion-track"><div class="conversion-fill conversion-high" style="width:80%;"></div></div><span class="conversion-label">80%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-6" data-title="Outbound Plays">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s6-main">
+            <div class="section-title-main">Best Outbound Plays</div>
+            <div class="section-subtitle-main">Signal-based outreach strategies for high-conversion pipeline generation</div>
+            <div class="plays-grid">
+              <div class="play-card">
+                <div class="play-header"><div class="play-icon"><i class="fas fa-exclamation-triangle"></i></div><div><div class="play-title">Recent Outage → Urgency Outreach</div><div class="play-subtitle">Target: Companies with recent incidents</div></div></div>
+                <div class="play-content">
+                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">Recent outages create immediate pain and budget availability for incident resolution tools</div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-globe"></i><span>Status pages, incident.io, company blogs</span></div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], saw [Company]'s recent outage on [Date]. Our AI SRE agent helped DoorDash reduce MTTR by 90%. Worth a quick chat?"</div></div>
+                </div>
+                <div class="priority-badge">High Priority</div>
+              </div>
+              <div class="play-card">
+                <div class="play-header"><div class="play-icon"><i class="fas fa-users"></i></div><div><div class="play-title">Hiring SREs → Scale Efficiency Outreach</div><div class="play-subtitle">Target: Companies hiring SRE/DevOps</div></div></div>
+                <div class="play-content">
+                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">SRE hiring indicates scaling challenges and need for automation</div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-briefcase"></i><span>LinkedIn jobs, AngelList, company careers</span></div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], noticed you're hiring SREs. Our AI agent reduces on-call load by 70% - helps your team focus on building."</div></div>
+                </div>
+                <div class="priority-badge medium">Medium Priority</div>
+              </div>
+              <div class="play-card">
+                <div class="play-header"><div class="play-icon"><i class="fas fa-chart-line"></i></div><div><div class="play-title">Datadog Users → Observability Optimization</div><div class="play-subtitle">Target: Companies using Datadog/New Relic</div></div></div>
+                <div class="play-content">
+                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">Existing observability users are ready to upgrade incident resolution capabilities</div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-server"></i><span>Datadog marketplace, job postings, tech stack analysis</span></div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], using Datadog for monitoring? We add AI-powered RCA to cut investigation time by 80%."</div></div>
+                </div>
+                <div class="priority-badge">High Priority</div>
+              </div>
+              <div class="play-card">
+                <div class="play-header"><div class="play-icon"><i class="fas fa-user-tie"></i></div><div><div class="play-title">New CTO → Modernization Outreach</div><div class="play-subtitle">Target: Companies with new leadership</div></div></div>
+                <div class="play-content">
+                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">New CTOs are evaluating tech stack and looking for quick wins</div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-newspaper"></i><span>LinkedIn updates, press releases, company news</span></div></div>
+                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], congrats on the new role! Our AI SRE agent helps teams modernize incident response."</div></div>
+                </div>
+                <div class="priority-badge medium">Medium Priority</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-7" data-title="Messaging Strategy">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s7-main">
+            <div class="section-title-main">Messaging Strategy</div>
+            <div class="section-subtitle-main" style="font-size:20px; margin-bottom:32px;">Persona-specific messaging and outreach hooks for each buyer type</div>
+            <div class="messaging-grid">
+              <div class="messaging-card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-user-tie"></i></div><div><div class="card-title-lg">CTO</div><div class="card-subtitle">Chief Technology Officer</div></div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Reduce MTTR by 90% and eliminate engineering hours lost to debugging"</div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], DoorDash saved 1,000 engineering hours last year with AI-powered incident resolution. Worth a 15-min chat?"</div></div></div>
+                <div class="key-points"><div class="key-point">Downtime cost</div><div class="key-point">Engineering productivity</div><div class="key-point">MTTR reduction</div></div>
+                <div class="priority-badge" style="top:24px; right:24px; font-weight:600;">High Priority</div>
+              </div>
+              <div class="messaging-card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-cogs"></i></div><div><div class="card-title-lg">VP Engineering</div><div class="card-subtitle">Vice President of Engineering</div></div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Accelerate release cycles by 40% with automated incident resolution"</div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], our AI SRE agent helped [Company] cut deployment failures by 70%. Interested in a demo?"</div></div></div>
+                <div class="key-points"><div class="key-point">Faster releases</div><div class="key-point">Code quality</div><div class="key-point">Team efficiency</div></div>
+                <div class="priority-badge medium" style="top:24px; right:24px; font-weight:600;">Medium Priority</div>
+              </div>
+              <div class="messaging-card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div><div class="card-title-lg">Head of SRE</div><div class="card-subtitle">Site Reliability Engineering</div></div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Eliminate alert noise and cut MTTR from hours to minutes"</div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], tired of alert fatigue? Our AI agent reduces on-call stress by 80%. Let's chat?"</div></div></div>
+                <div class="key-points"><div class="key-point">Alert fatigue</div><div class="key-point">MTTR reduction</div><div class="key-point">On-call stress</div></div>
+                <div class="priority-badge" style="top:24px; right:24px; font-weight:600;">High Priority</div>
+              </div>
+              <div class="messaging-card">
+                <div class="card-header"><div class="card-icon"><i class="fas fa-server"></i></div><div><div class="card-title-lg">Platform Teams</div><div class="card-subtitle">Infrastructure &amp; DevOps</div></div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Correlate deployments, code changes, and telemetry for faster debugging"</div></div>
+                <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], our AI correlates code changes with incidents. Debug 10x faster?"</div></div></div>
+                <div class="key-points"><div class="key-point">Debugging speed</div><div class="key-point">Code correlation</div><div class="key-point">Telemetry analysis</div></div>
+                <div class="priority-badge medium" style="top:24px; right:24px; font-weight:600;">Medium Priority</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+
+        <section class="slide slide-8" data-title="GTM Priorities">
+          <div class="bg-pattern"></div>
+          <div class="grid-lines"></div>
+          <div class="header">
+            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
+            <div class="brand-pill"><img alt="Sprouts.ai" src="https://page.gensparksite.com/slides_images/79852baed8e443f6e42984f1b33020dc.jpg" /><span>Sprouts.ai</span></div>
+          </div>
+          <div class="main-content s8-main">
+            <div class="section-title-main">Recommended GTM Priorities</div>
+            <div class="section-subtitle-main" style="font-size:20px; margin-bottom:30px;">Sequenced approach to outbound pipeline generation</div>
+            <div class="roadmap-container">
+              <div class="priority-row">
+                <div class="priority-card">
+                  <div class="priority-number">1</div>
+                  <div class="priority-content">
+                    <div class="priority-title">Recent Outage Accounts</div>
+                    <div class="priority-desc">Target companies with recent incidents or public outages</div>
+                    <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Highest Urgency</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Immediate Budget</div></div><div class="priority-indicator"><div class="priority-dot urgency-high"></div><span class="priority-label">High Priority</span></div></div>
+                  </div>
+                </div>
+                <div class="priority-card">
+                  <div class="priority-number">2</div>
+                  <div class="priority-content">
+                    <div class="priority-title">SRE Hiring Accounts</div>
+                    <div class="priority-desc">Companies actively hiring SRE/DevOps engineers</div>
+                    <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">High Intent</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Scaling Pain</div></div><div class="priority-indicator"><div class="priority-dot priority-medium"></div><span class="priority-label">Medium Priority</span></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="priority-row">
+                <div class="priority-card">
+                  <div class="priority-number">3</div>
+                  <div class="priority-content">
+                    <div class="priority-title">Datadog/New Relic Users</div>
+                    <div class="priority-desc">Existing observability platform users</div>
+                    <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Strong Adjacency</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Optimization Ready</div></div><div class="priority-indicator"><div class="priority-dot priority-medium"></div><span class="priority-label">Medium Priority</span></div></div>
+                  </div>
+                </div>
+                <div class="priority-card">
+                  <div class="priority-number">4</div>
+                  <div class="priority-content">
+                    <div class="priority-title">Recently Funded Companies</div>
+                    <div class="priority-desc">Startups in growth mode with new funding</div>
+                    <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Expanding TAM</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Growth Mode</div></div><div class="priority-indicator"><div class="priority-dot priority-low"></div><span class="priority-label">Lower Priority</span></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="strategy-box">
+                <div class="strategy-header"><div class="strategy-icon"><i class="fas fa-lightbulb"></i></div><div class="strategy-title">Strategic Focus Statement</div></div>
+                <div class="strategy-text"><strong>Focus on high-pain, high-urgency accounts before scaling broader outbound.</strong> Prioritize companies with recent outages (Priority 1) as they have immediate budget and urgency. SRE hiring accounts (Priority 2) indicate scaling pain and operational challenges. Datadog/New Relic users (Priority 3) are already invested in observability and ready for optimization. Recently funded companies (Priority 4) have budget but lower urgency.</div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="footer-text">Prepared by Sprouts.ai</div>
+            <div class="footer-right"><span class="footer-text">April 2026</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn"><i class="fas fa-arrow-left"></i> Previous</button>
+    <div class="page-indicator">
+      <span class="page-label" id="pageLabel">1 / 8</span>
+      <div class="dots" id="dots"></div>
+    </div>
+    <button class="nav-btn" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const stage = document.getElementById("stage");
+    const viewport = document.getElementById("viewport");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const pageLabel = document.getElementById("pageLabel");
+    const dotsWrap = document.getElementById("dots");
+    let currentSlide = 0;
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "dot";
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      dot.addEventListener("click", () => goToSlide(index));
+      dotsWrap.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsWrap.children);
+
+    function updateScale() {
+      const availableWidth = viewport.clientWidth;
+      const availableHeight = viewport.clientHeight;
+      const scale = Math.min(availableWidth / 1280, availableHeight / 720);
+      stage.style.transform = `scale(${scale})`;
+    }
+
+    function goToSlide(index) {
+      currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === currentSlide));
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentSlide));
+      pageLabel.textContent = `${currentSlide + 1} / ${slides.length}`;
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === slides.length - 1;
+    }
+
+    prevBtn.addEventListener("click", () => goToSlide(currentSlide - 1));
+    nextBtn.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight" || event.key === "PageDown") goToSlide(currentSlide + 1);
+      if (event.key === "ArrowLeft" || event.key === "PageUp") goToSlide(currentSlide - 1);
+      if (event.key === "Home") goToSlide(0);
+      if (event.key === "End") goToSlide(slides.length - 1);
+    });
+
+    window.addEventListener("resize", updateScale);
+    updateScale();
+    goToSlide(0);
+  </script>
+</body>
+</html>
