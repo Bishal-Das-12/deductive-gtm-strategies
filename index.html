@@ -763,6 +763,7 @@
       height: 430px;
       display: flex;
       flex-direction: column;
+      padding-top: 30px;
     }
 
     .signal-header {
@@ -1022,6 +1023,7 @@
 
     .slide-5 .signal-title {
       font-size: 15px;
+      margin-bottom: 3px;
     }
 
     .slide-5 .signal-text {
@@ -1207,6 +1209,25 @@
     .priority-title { font-size: 16px; margin-bottom: 4px; }
     .priority-desc { font-size: 12px; line-height: 1.3; margin-bottom: 10px; }
 
+    .priority-detail {
+      margin-bottom: 6px;
+    }
+
+    .priority-detail-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .priority-detail-text {
+      font-size: 11px;
+      color: #cbd5e1;
+      line-height: 1.22;
+    }
+
     .priority-meta {
       display: flex;
       align-items: center;
@@ -1250,6 +1271,57 @@
     .strategy-text {
       font-size: 12.5px;
       line-height: 1.35;
+    }
+
+    .slide-8 .priority-card {
+      min-height: 0;
+      height: auto;
+      padding: 16px;
+      gap: 12px;
+    }
+
+    .slide-8 .priority-number {
+      width: 38px;
+      height: 38px;
+      font-size: 17px;
+    }
+
+    .slide-8 .priority-title {
+      font-size: 15px;
+    }
+
+    .slide-8 .priority-desc {
+      font-size: 11px;
+      line-height: 1.22;
+      margin-bottom: 6px;
+    }
+
+    .slide-8 .priority-meta {
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .slide-8 .priority-tag {
+      padding: 3px 7px;
+      font-size: 10px;
+    }
+
+    .slide-8 .priority-label {
+      font-size: 11px;
+    }
+
+    .slide-8 .strategy-box {
+      padding: 14px 16px;
+      margin-top: 0;
+    }
+
+    .slide-8 .strategy-title {
+      font-size: 15px;
+    }
+
+    .slide-8 .strategy-text {
+      font-size: 11.5px;
+      line-height: 1.28;
     }
   </style>
 </head>
@@ -1568,61 +1640,6 @@
           </div>
         </section>
 
-        <section class="slide slide-6" data-title="Outbound Plays">
-          <div class="bg-pattern"></div>
-          <div class="grid-lines"></div>
-          <div class="header">
-            <div class="logo"><div class="logo-icon"></div><div class="logo-text">Deductive AI</div></div>
-            <div class="brand-pill"><img alt="Sprouts.ai" src="https://sprouts.ai/_next/static/media/logo-icon.51debca5.png" /><span>Sprouts.ai</span></div>
-          </div>
-          <div class="main-content s6-main">
-            <div class="section-title-main">Best Outbound Plays</div>
-            <div class="section-subtitle-main">Signal-based outreach strategies for high-conversion pipeline generation</div>
-            <div class="plays-grid">
-              <div class="play-card">
-                <div class="play-header"><div class="play-icon"><i class="fas fa-exclamation-triangle"></i></div><div><div class="play-title">Recent Outage → Urgency Outreach</div><div class="play-subtitle">Target: Companies with recent incidents</div></div></div>
-                <div class="play-content">
-                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">Recent outages create immediate pain and budget availability for incident resolution tools</div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-globe"></i><span>Status pages, incident.io, company blogs</span></div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], saw [Company]'s recent outage on [Date]. Our AI SRE agent helped DoorDash reduce MTTR by 90%. Worth a quick chat?"</div></div>
-                </div>
-                <div class="priority-badge">High Priority</div>
-              </div>
-              <div class="play-card">
-                <div class="play-header"><div class="play-icon"><i class="fas fa-users"></i></div><div><div class="play-title">Hiring SREs → Scale Efficiency Outreach</div><div class="play-subtitle">Target: Companies hiring SRE/DevOps</div></div></div>
-                <div class="play-content">
-                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">SRE hiring indicates scaling challenges and need for automation</div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-briefcase"></i><span>LinkedIn jobs, AngelList, company careers</span></div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], noticed you're hiring SREs. Our AI agent reduces on-call load by 70% - helps your team focus on building."</div></div>
-                </div>
-                <div class="priority-badge medium">Medium Priority</div>
-              </div>
-              <div class="play-card">
-                <div class="play-header"><div class="play-icon"><i class="fas fa-chart-line"></i></div><div><div class="play-title">Datadog Users → Observability Optimization</div><div class="play-subtitle">Target: Companies using Datadog/New Relic</div></div></div>
-                <div class="play-content">
-                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">Existing observability users are ready to upgrade incident resolution capabilities</div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-server"></i><span>Datadog marketplace, job postings, tech stack analysis</span></div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], using Datadog for monitoring? We add AI-powered RCA to cut investigation time by 80%."</div></div>
-                </div>
-                <div class="priority-badge">High Priority</div>
-              </div>
-              <div class="play-card">
-                <div class="play-header"><div class="play-icon"><i class="fas fa-user-tie"></i></div><div><div class="play-title">New CTO → Modernization Outreach</div><div class="play-subtitle">Target: Companies with new leadership</div></div></div>
-                <div class="play-content">
-                  <div class="play-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Why it matters</span></div><div class="section-text">New CTOs are evaluating tech stack and looking for quick wins</div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-search"></i><span>Where to find the signal</span></div><div class="signal-source"><i class="fas fa-newspaper"></i><span>LinkedIn updates, press releases, company news</span></div></div>
-                  <div class="play-section"><div class="section-label"><i class="fas fa-comment"></i><span>Recommended outreach angle</span></div><div class="outreach-angle">"Hi [Name], congrats on the new role! Our AI SRE agent helps teams modernize incident response."</div></div>
-                </div>
-                <div class="priority-badge medium">Medium Priority</div>
-              </div>
-            </div>
-          </div>
-          <div class="footer">
-            <div class="footer-text">Prepared by Sprouts.ai</div>
-            <div class="footer-right"><span class="footer-text">April 2026</span></div>
-          </div>
-        </section>
-
         <section class="slide slide-7" data-title="Messaging Strategy">
           <div class="bg-pattern"></div>
           <div class="grid-lines"></div>
@@ -1639,28 +1656,28 @@
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Reduce MTTR by 90% and eliminate engineering hours lost to debugging"</div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], DoorDash saved 1,000 engineering hours last year with AI-powered incident resolution. Worth a 15-min chat?"</div></div></div>
                 <div class="key-points"><div class="key-point">Downtime cost</div><div class="key-point">Engineering productivity</div><div class="key-point">MTTR reduction</div></div>
-                <div class="priority-badge" style="top:24px; right:24px; font-weight:600;">High Priority</div>
+                <div class="priority-badge" style="top:18px; right:24px; font-weight:600;">High Priority</div>
               </div>
               <div class="messaging-card">
                 <div class="card-header"><div class="card-icon"><i class="fas fa-cogs"></i></div><div><div class="card-title-lg">VP Engineering</div><div class="card-subtitle">Vice President of Engineering</div></div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Accelerate release cycles by 40% with automated incident resolution"</div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], our AI SRE agent helped [Company] cut deployment failures by 70%. Interested in a demo?"</div></div></div>
                 <div class="key-points"><div class="key-point">Faster releases</div><div class="key-point">Code quality</div><div class="key-point">Team efficiency</div></div>
-                <div class="priority-badge medium" style="top:24px; right:24px; font-weight:600;">Medium Priority</div>
+                <div class="priority-badge medium" style="top:18px; right:24px; font-weight:600;">Medium Priority</div>
               </div>
               <div class="messaging-card">
                 <div class="card-header"><div class="card-icon"><i class="fas fa-shield-alt"></i></div><div><div class="card-title-lg">Head of SRE</div><div class="card-subtitle">Site Reliability Engineering</div></div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Eliminate alert noise and cut MTTR from hours to minutes"</div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], tired of alert fatigue? Our AI agent reduces on-call stress by 80%. Let's chat?"</div></div></div>
                 <div class="key-points"><div class="key-point">Alert fatigue</div><div class="key-point">MTTR reduction</div><div class="key-point">On-call stress</div></div>
-                <div class="priority-badge" style="top:24px; right:24px; font-weight:600;">High Priority</div>
+                <div class="priority-badge" style="top:18px; right:24px; font-weight:600;">High Priority</div>
               </div>
               <div class="messaging-card">
                 <div class="card-header"><div class="card-icon"><i class="fas fa-server"></i></div><div><div class="card-title-lg">Platform Teams</div><div class="card-subtitle">Infrastructure &amp; DevOps</div></div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-bullseye"></i><span>Key Focus</span></div><div class="section-content">"Correlate deployments, code changes, and telemetry for faster debugging"</div></div>
                 <div class="messaging-section"><div class="section-label"><i class="fas fa-comment"></i><span>Sample Hook</span></div><div class="hook-box"><div class="hook-text">"Hi [Name], our AI correlates code changes with incidents. Debug 10x faster?"</div></div></div>
                 <div class="key-points"><div class="key-point">Debugging speed</div><div class="key-point">Code correlation</div><div class="key-point">Telemetry analysis</div></div>
-                <div class="priority-badge medium" style="top:24px; right:24px; font-weight:600;">Medium Priority</div>
+                <div class="priority-badge medium" style="top:18px; right:24px; font-weight:600;">Medium Priority</div>
               </div>
             </div>
           </div>
@@ -1687,6 +1704,10 @@
                   <div class="priority-content">
                     <div class="priority-title">Recent Outage Accounts</div>
                     <div class="priority-desc">Target companies with recent incidents or public outages</div>
+                    <div class="priority-detail">
+                      <div class="priority-detail-label">Why it matters</div>
+                      <div class="priority-detail-text">Recent outages create immediate pain, executive urgency, and faster budget availability for incident resolution tools.</div>
+                    </div>
                     <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Highest Urgency</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Immediate Budget</div></div><div class="priority-indicator"><div class="priority-dot urgency-high"></div><span class="priority-label">High Priority</span></div></div>
                   </div>
                 </div>
@@ -1695,6 +1716,10 @@
                   <div class="priority-content">
                     <div class="priority-title">SRE Hiring Accounts</div>
                     <div class="priority-desc">Companies actively hiring SRE/DevOps engineers</div>
+                    <div class="priority-detail">
+                      <div class="priority-detail-label">Why it matters</div>
+                      <div class="priority-detail-text">SRE hiring usually signals scaling pain, rising on-call load, and a willingness to invest in operational leverage.</div>
+                    </div>
                     <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">High Intent</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Scaling Pain</div></div><div class="priority-indicator"><div class="priority-dot priority-medium"></div><span class="priority-label">Medium Priority</span></div></div>
                   </div>
                 </div>
@@ -1705,6 +1730,10 @@
                   <div class="priority-content">
                     <div class="priority-title">Datadog/New Relic Users</div>
                     <div class="priority-desc">Existing observability platform users</div>
+                    <div class="priority-detail">
+                      <div class="priority-detail-label">Why it matters</div>
+                      <div class="priority-detail-text">These teams already care about observability and are more ready to add AI-driven RCA and investigation workflows.</div>
+                    </div>
                     <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Strong Adjacency</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Optimization Ready</div></div><div class="priority-indicator"><div class="priority-dot priority-medium"></div><span class="priority-label">Medium Priority</span></div></div>
                   </div>
                 </div>
@@ -1713,6 +1742,10 @@
                   <div class="priority-content">
                     <div class="priority-title">Recently Funded Companies</div>
                     <div class="priority-desc">Startups in growth mode with new funding</div>
+                    <div class="priority-detail">
+                      <div class="priority-detail-label">Why it matters</div>
+                      <div class="priority-detail-text">Fresh funding often precedes platform expansion, faster shipping, and new investments in reliability before scale creates visible failures.</div>
+                    </div>
                     <div class="priority-meta"><div class="priority-tags"><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Expanding TAM</div><div class="priority-tag" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.2); color:#34d399;">Growth Mode</div></div><div class="priority-indicator"><div class="priority-dot priority-low"></div><span class="priority-label">Lower Priority</span></div></div>
                   </div>
                 </div>
@@ -1735,7 +1768,7 @@
   <div class="nav">
     <button class="nav-btn" id="prevBtn"><i class="fas fa-arrow-left"></i> Previous</button>
     <div class="page-indicator">
-      <span class="page-label" id="pageLabel">1 / 8</span>
+      <span class="page-label" id="pageLabel">1 / 7</span>
       <div class="dots" id="dots"></div>
     </div>
     <button class="nav-btn" id="nextBtn">Next <i class="fas fa-arrow-right"></i></button>
